@@ -12,14 +12,19 @@ def my_tarot():
     while tarot.get(card_key):
         spread["future"] = tarot.pop(card_key)
 
-answer = input("Are ready to play the game? Yes/No\n")
-if answer.title() == "Yes":
-    my_tarot()
-elif answer.title() == "No":
-    print("Then what are you doing here??")
-else:
-    print("WTF is that? don't you know how to spell \"Yes\" or \"No\"?!")
+def question(answer):
+    if answer.title() == "Yes":
+        my_tarot()
+    elif answer.title() == "No":
+        print("Then what are you doing here??")
+    else:
+        print("WTF is that? don't you know how to spell \"Yes\" or \"No\"?!")
 
+answer = input("Are ready to play the game? Yes/No\n")
+question(answer)
 
 for card, value in spread.items():
   print("Your " + card + " is the " + value + " card.")
+
+answer = input("\nWanna try again?")
+question(answer)
